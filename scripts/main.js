@@ -1,5 +1,64 @@
 // Main JavaScript for Portfolio Website
 
+// Skills Data Structure
+const skillsData = {
+    python: {
+        name: 'Python',
+        icon: `<path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" stroke-width="2" fill="none"/>`,
+        subSkills: [
+            { name: 'Pandas', icon: '📊' },
+            { name: 'NumPy', icon: '🔢' },
+            { name: 'FastAPI', icon: '⚡' },
+            { name: 'Flask', icon: '🍶' },
+            { name: 'Matplotlib', icon: '📈' },
+            { name: 'IBAPI', icon: '📈' }
+        ]
+    },
+    javascript: {
+        name: 'JavaScript',
+        icon: `<path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" stroke-width="2" fill="none"/>`,
+        subSkills: [
+            { name: 'React', icon: '⚛️' },
+            { name: 'Node.js', icon: '🟢' },
+            { name: 'Next.js', icon: '⚡' }
+        ]
+    },
+    aws: {
+        name: 'AWS',
+        icon: `<path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" stroke-width="2" fill="none"/>`,
+        subSkills: [
+            { name: 'Lambda', icon: 'λ' },
+            { name: 'CodePipeline', icon: '🔗' },
+            { name: 'CodeBuild', icon: '🔨' },
+            { name: 'CodeDeploy', icon: '🚀' },
+            { name: 'SES', icon: '📧' },
+            { name: 'EC2', icon: '🖥️' },
+            { name: 'S3', icon: '🪣' },
+            { name: 'RDS', icon: '🗄️' },
+            { name: 'DynamoDB', icon: '⚡' },
+            { name: 'VPC', icon: '🌐' }
+        ]
+    },
+    docker: {
+        name: 'Docker',
+        icon: `<path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" stroke-width="2" fill="none"/>`,
+        subSkills: []
+    },
+    sql: {
+        name: 'SQL',
+        icon: `<path d="M4 7h16M4 11h16M4 15h16M4 19h16" stroke="currentColor" stroke-width="2" fill="none"/>`,
+        subSkills: [
+            { name: 'PostgreSQL', icon: '🐘' },
+            { name: 'MySQL', icon: '🐬' }
+        ]
+    },
+    solidity: {
+        name: 'Solidity',
+        icon: `<path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" stroke-width="2" fill="none"/>`,
+        subSkills: []
+    }
+};
+
 // Initialize AOS (Animate On Scroll)
 AOS.init({
     duration: 800,
@@ -56,6 +115,10 @@ class LanguageManager {
                     title: 'Mihir Sampat',
                     subtitle: 'Software Engineer & Problem Solver',
                     cta: 'View my work'
+                },
+                skills: {
+                    title: 'Skills & Technologies',
+                    subtitle: 'Technologies I work with to build scalable solutions'
                 },
                 about: {
                     title: 'About Me',
@@ -142,6 +205,10 @@ class LanguageManager {
                     title: 'मिहिर संपत',
                     subtitle: 'सॉफ्टवेयर इंजीनियर और समस्या समाधानकर्ता',
                     cta: 'मेरा काम देखें'
+                },
+                skills: {
+                    title: 'कौशल और तकनीकें',
+                    subtitle: 'मैं स्केलेबल समाधान बनाने के लिए जिन तकनीकों के साथ काम करता हूं'
                 },
                 about: {
                     title: 'मेरे बारे में',
@@ -529,6 +596,112 @@ function scrollToSection(sectionId) {
     }
 }
 
+// Skills Management
+class SkillsManager {
+    constructor() {
+        this.currentExpanded = null;
+        this.init();
+    }
+
+    init() {
+        this.toPlainSkills(skillsData);
+        this.renderSkills();
+        this.setupEventListeners();
+    }
+
+    toPlainSkills(skillsData) {
+        for (const key in skillsData) {
+            if (skillsData[key].subSkills) {
+                skillsData[key].subSkills = skillsData[key].subSkills.map(sub => ({ name: sub.name, icon: '' }));
+            }
+        }
+    }
+
+    renderSkills() {
+        const container = document.getElementById('skillsContainer');
+        if (!container) return;
+
+        container.innerHTML = '';
+        
+        Object.entries(skillsData).forEach(([key, skill], index) => {
+            const skillElement = this.createSkillElement(key, skill, index);
+            container.appendChild(skillElement);
+        });
+    }
+
+    createSkillElement(key, skill, index) {
+        const skillDiv = document.createElement('div');
+        skillDiv.className = 'skill-category';
+        skillDiv.setAttribute('data-skill', key);
+        skillDiv.setAttribute('data-aos', 'fade-up');
+        skillDiv.setAttribute('data-aos-delay', (index + 1) * 100);
+
+        const mainSkill = document.createElement('div');
+        mainSkill.className = 'main-skill';
+        mainSkill.innerHTML = `
+            <svg class="main-skill-icon" width="28" height="28" viewBox="0 0 24 24">
+                ${skill.icon}
+            </svg>
+            <span>${skill.name}</span>
+        `;
+
+        const subSkills = document.createElement('div');
+        subSkills.className = 'sub-skills';
+        
+        if (skill.subSkills.length > 0) {
+            const subSkillsGrid = document.createElement('div');
+            subSkillsGrid.className = 'sub-skills-grid';
+            
+            skill.subSkills.forEach(subSkill => {
+                const subSkillChip = document.createElement('div');
+                subSkillChip.className = 'sub-skill-chip';
+                subSkillChip.innerHTML =
+                    (subSkill.icon ? `<span class="sub-skill-icon">${subSkill.icon}</span>` : '') +
+                    `<span>${subSkill.name}</span>`;
+                subSkillsGrid.appendChild(subSkillChip);
+            });
+            
+            subSkills.appendChild(subSkillsGrid);
+        }
+
+        skillDiv.appendChild(mainSkill);
+        skillDiv.appendChild(subSkills);
+
+        return skillDiv;
+    }
+
+    setupEventListeners() {
+        const container = document.getElementById('skillsContainer');
+        if (!container) return;
+        container.addEventListener('click', (e) => {
+            const skillCategory = e.target.closest('.skill-category');
+            if (skillCategory && container.contains(skillCategory)) {
+                this.toggleSkill(skillCategory);
+            }
+        });
+    }
+
+    toggleSkill(skillCategory) {
+        const subSkills = skillCategory.querySelector('.sub-skills');
+        // If clicking the same category, collapse it only
+        if (skillCategory.classList.contains('expanded')) {
+            skillCategory.classList.remove('expanded');
+            subSkills.classList.remove('expanded');
+            this.currentExpanded = null;
+        } else {
+            // Collapse previously expanded category (if any)
+            if (this.currentExpanded && this.currentExpanded !== skillCategory) {
+                this.currentExpanded.classList.remove('expanded');
+                this.currentExpanded.querySelector('.sub-skills').classList.remove('expanded');
+            }
+            // Expand current category
+            skillCategory.classList.add('expanded');
+            subSkills.classList.add('expanded');
+            this.currentExpanded = skillCategory;
+        }
+    }
+}
+
 // Initialize everything when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
     // Initialize managers
@@ -536,6 +709,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const languageManager = new LanguageManager();
     const formHandler = new FormHandler();
     const toastManager = new ToastManager();
+    const skillsManager = new SkillsManager();
 
     // Setup other functionality
     setupSmoothScrolling();
