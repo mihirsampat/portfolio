@@ -582,24 +582,50 @@ h1, h2, h3, h4, h5, h6 {
 
 .about-image {
     position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 2rem;
+    overflow: visible;
+}
+
+.about-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-primary);
+    border-radius: 1.25rem;
+    box-shadow: 0 8px 32px 0 rgba(59, 130, 246, 0.10), 0 1.5px 8px 0 rgba(0,0,0,0.08);
+    overflow: hidden;
+    min-width: 0;
+    width: 260px;
+    height: 260px;
+    position: relative;
+    border: none;
+    transition: transform 0.3s cubic-bezier(.4,2,.6,1), box-shadow 0.2s;
+    will-change: transform;
 }
 
 .about-portrait {
-    width: 260px;
-    height: 260px;
-    border-radius: 50%;
+    width: 220px;
+    height: 220px;
+    border-radius: 1rem;
     object-fit: cover;
+    margin-left: 0;
+    box-shadow: none;
+    background: var(--bg-primary);
+    border: none;
+    display: block;
+    transition: none;
+}
+
+.about-portrait:hover {
+    transform: translateY(-8px) scale(1.04);
+    box-shadow: 0 16px 40px 0 rgba(59, 130, 246, 0.18), 0 2px 12px 0 rgba(0,0,0,0.12);
 }
 
 .portrait-border {
-    position: absolute;
-    top: -10px;
-    left: -10px;
-    right: -10px;
-    bottom: -10px;
-    border: 3px solid var(--accent-primary);
-    border-radius: 50%;
-    opacity: 0.3;
+    display: none !important;
 }
 
 .bio p {
@@ -634,9 +660,17 @@ h1, h2, h3, h4, h5, h6 {
         text-align: center;
     }
     
+    .about-image {
+        justify-content: center;
+    }
+    
+    .about-card {
+        width: 160px;
+        height: 160px;
+    }
     .about-portrait {
-        width: 200px;
-        height: 200px;
+        width: 120px;
+        height: 120px;
     }
 }
 

@@ -702,6 +702,50 @@ class SkillsManager {
     }
 }
 
+// Parallax hover effect for About Me card
+function setupAboutCardParallax() {
+    const card = document.querySelector('.about-image .about-card');
+    if (!card) return;
+
+    function handleMouseMove(e) {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        const rotateX = ((y - centerY) / centerY) * 10; // max 10deg
+        const rotateY = ((x - centerX) / centerX) * -10;
+        card.style.transform = `perspective(600px) scale(1.04) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+    }
+
+    function resetParallax() {
+        card.style.transform = 'perspective(600px) scale(1)';
+    }
+
+    function enableParallax() {
+        card.addEventListener('mousemove', handleMouseMove);
+        card.addEventListener('mouseleave', resetParallax);
+    }
+    function disableParallax() {
+        card.removeEventListener('mousemove', handleMouseMove);
+        card.removeEventListener('mouseleave', resetParallax);
+        resetParallax();
+    }
+
+    function checkParallax() {
+        if (window.innerWidth > 768) {
+            enableParallax();
+        } else {
+            disableParallax();
+        }
+    }
+
+    checkParallax();
+    window.addEventListener('resize', checkParallax);
+    // Reset on load
+    resetParallax();
+}
+
 // Initialize everything when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
     // Initialize managers
@@ -716,6 +760,7 @@ document.addEventListener('DOMContentLoaded', () => {
     setupNavigationActiveState();
     setupParallax();
     setupMobileMenu();
+    setupAboutCardParallax();
 
     // Make utilities globally available
     window.scrollToSection = scrollToSection;
