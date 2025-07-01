@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mihir Sampat - Software Engineer & Problem Solver</title>
+    <meta name="description" content="Software Engineer and Problem Solver based in Mumbai, India. Specializing in Python, FastAPI, AWS, and blockchain development.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    
+    <!-- Fonts -->
+    <link rel="preload" href="assets/fonts/Poppins-SemiBold.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="assets/fonts/Inter-Regular.woff2" as="font" type="font/woff2" crossorigin>
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles/main.css">
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="#home" data-i18n="name">Mihir Sampat</a>
+                </div>
+                
+                <nav class="nav">
+                    <ul class="nav-list">
+                        <li><a href="#home" class="nav-link" data-i18n="nav.home">Home</a></li>
+                        <li><a href="#about" class="nav-link" data-i18n="nav.about">About</a></li>
+                        <li><a href="#projects" class="nav-link" data-i18n="nav.projects">Projects</a></li>
+                        <li><a href="#experience" class="nav-link" data-i18n="nav.experience">Experience</a></li>
+                        <li><a href="#contact" class="nav-link" data-i18n="nav.contact">Contact</a></li>
+                    </ul>
+                </nav>
+                
+                <div class="header-controls">
+                    <div class="language-switcher">
+                        <button class="language-btn" aria-label="Language">
+                            <span class="current-lang">EN</span>
+                            <svg class="chevron" width="12" height="12" viewBox="0 0 12 12">
+                                <path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                            </svg>
+                        </button>
+                        <div class="language-dropdown">
+                            <button class="lang-option" data-lang="en">English</button>
+                            <button class="lang-option" data-lang="hi">हिंदी</button>
+                        </div>
+                    </div>
+                    
+                    <button class="theme-toggle" aria-label="Toggle theme">
+                        <svg class="sun-icon" width="20" height="20" viewBox="0 0 20 20">
+                            <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"/>
+                        </svg>
+                        <svg class="moon-icon" width="20" height="20" viewBox="0 0 20 20">
+                            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/>
+                        </svg>
+                    </button>
+                    
+                    <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="particles"></div>
+            <div class="container">
+                <div class="hero-content" data-aos="fade-up">
+                    <div class="hero-portrait">
+                        <img src="assets/portrait.jpg" alt="Mihir Sampat" class="portrait-img">
+                        <div class="portrait-glow"></div>
+                    </div>
+                    
+                    <h1 class="hero-title" data-i18n="hero.title">Mihir Sampat</h1>
+                    <p class="hero-subtitle" data-i18n="hero.subtitle">Software Engineer & Problem Solver</p>
+                    
+                    <button class="btn btn-primary" data-i18n="hero.cta" onclick="scrollToSection('skills')">
+                        View my work
+                    </button>
+                </div>
+                
+                <div class="scroll-indicator">
+                    <svg class="scroll-arrow" width="24" height="24" viewBox="0 0 24 24">
+                        <path d="M7 10l5 5 5-5" stroke="currentColor" stroke-width="2" fill="none"/>
+                    </svg>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Preview -->
+        <section id="skills" class="skills-preview">
+            <div class="container">
+                <div class="skills-grid">
+                    <div class="skill-chip" data-aos="fade-up" data-aos-delay="100">
+                        <svg class="skill-icon" width="24" height="24" viewBox="0 0 24 24">
+                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" stroke-width="2" fill="none"/>
+                        </svg>
+                        <span>Python</span>
+                    </div>
+                    <div class="skill-chip" data-aos="fade-up" data-aos-delay="200">
+                        <svg class="skill-icon" width="24" height="24" viewBox="0 0 24 24">
+                            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" stroke="currentColor" stroke-width="2" fill="none"/>
+                        </svg>
+                        <span>FastAPI</span>
+                    </div>
+                    <div class="skill-chip" data-aos="fade-up" data-aos-delay="300">
+                        <svg class="skill-icon" width="24" height="24" viewBox="0 0 24 24">
+                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" stroke-width="2" fill="none"/>
+                        </svg>
+                        <span>AWS</span>
+                    </div>
+                    <div class="skill-chip" data-aos="fade-up" data-aos-delay="400">
+                        <svg class="skill-icon" width="24" height="24" viewBox="0 0 24 24">
+                            <path d="M4 7h16M4 11h16M4 15h16M4 19h16" stroke="currentColor" stroke-width="2" fill="none"/>
+                        </svg>
+                        <span>PostgreSQL</span>
+                    </div>
+                    <div class="skill-chip" data-aos="fade-up" data-aos-delay="500">
+                        <svg class="skill-icon" width="24" height="24" viewBox="0 0 24 24">
+                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" stroke-width="2" fill="none"/>
+                        </svg>
+                        <span>Solidity</span>
+                    </div>
+                    <div class="skill-chip" data-aos="fade-up" data-aos-delay="600">
+                        <svg class="skill-icon" width="24" height="24" viewBox="0 0 24 24">
+                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" stroke-width="2" fill="none"/>
+                        </svg>
+                        <span>JavaScript</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about">
+            <div class="container">
+                <div class="about-content">
+                    <div class="about-image" data-aos="fade-right">
+                        <img src="assets/portrait-large.jpg" alt="Mihir Sampat PL" class="about-portrait">
+                        <div class="portrait-border"></div>
+                    </div>
+                    
+                    <div class="about-text" data-aos="fade-left">
+                        <h2 class="section-title" data-i18n="about.title">About Me</h2>
+                        <div class="bio">
+                            <p data-i18n="about.bio.1">I'm a passionate software engineer with 7 years of experience building scalable solutions and solving complex problems. My journey in technology has taken me from web development to blockchain and cloud infrastructure.</p>
+                            <p data-i18n="about.bio.2">I specialize in Python development, particularly with FastAPI for building high-performance APIs, and have extensive experience with AWS cloud services and PostgreSQL databases.</p>
+                            <p data-i18n="about.bio.3">When I'm not coding, you'll find me tending to my mango grove or exploring new technologies. I believe in writing clean, maintainable code and creating solutions that make a real impact.</p>
+                        </div>
+                        
+                        <div class="quick-facts">
+                            <div class="fact">
+                                <span class="fact-icon">🎂</span>
+                                <span data-i18n="about.facts.age">Age 30</span>
+                            </div>
+                            <div class="fact">
+                                <span class="fact-icon">📍</span>
+                                <span data-i18n="about.facts.location">Mumbai, India</span>
+                            </div>
+                            <div class="fact">
+                                <span class="fact-icon">💻</span>
+                                <span data-i18n="about.facts.experience">7 yrs experience</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="projects">
+            <div class="container">
+                <h2 class="section-title" data-aos="fade-up" data-i18n="projects.title">Featured Projects</h2>
+                
+                <div class="projects-grid">
+                    <article class="project-card" data-aos="fade-up" data-aos-delay="100" data-tech="Python,FastAPI,PostgreSQL,AWS">
+                        <div class="project-image">
+                            <img src="assets/projects/project1.jpg" alt="Project 1" loading="lazy">
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title" data-i18n="projects.project1.title">E-Commerce API Platform</h3>
+                            <p class="project-description" data-i18n="projects.project1.description">A high-performance REST API built with FastAPI, featuring user authentication, product management, and payment processing with PostgreSQL and Redis caching.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">FastAPI</span>
+                                <span class="tech-tag">PostgreSQL</span>
+                                <span class="tech-tag">AWS</span>
+                            </div>
+                            <div class="project-actions">
+                                <a href="#" class="btn btn-primary" data-i18n="projects.demo">Live Demo</a>
+                                <a href="#" class="btn btn-outline" data-i18n="projects.repo">Repo</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="project-card" data-aos="fade-up" data-aos-delay="200" data-tech="Solidity,JavaScript,Web3">
+                        <div class="project-image">
+                            <img src="assets/projects/project2.jpg" alt="Project 2" loading="lazy">
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title" data-i18n="projects.project2.title">DeFi Yield Farming Protocol</h3>
+                            <p class="project-description" data-i18n="projects.project2.description">A decentralized finance protocol for yield farming with smart contracts written in Solidity, featuring liquidity pools and automated market making.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Solidity</span>
+                                <span class="tech-tag">JavaScript</span>
+                                <span class="tech-tag">Web3</span>
+                            </div>
+                            <div class="project-actions">
+                                <a href="#" class="btn btn-primary" data-i18n="projects.demo">Live Demo</a>
+                                <a href="#" class="btn btn-outline" data-i18n="projects.repo">Repo</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="project-card" data-aos="fade-up" data-aos-delay="300" data-tech="Python,AWS,Lambda">
+                        <div class="project-image">
+                            <img src="assets/projects/project3.jpg" alt="Project 3" loading="lazy">
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title" data-i18n="projects.project3.title">Serverless Data Pipeline</h3>
+                            <p class="project-description" data-i18n="projects.project3.description">A serverless data processing pipeline using AWS Lambda, S3, and DynamoDB for real-time analytics and reporting with automated scaling.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">AWS</span>
+                                <span class="tech-tag">Lambda</span>
+                            </div>
+                            <div class="project-actions">
+                                <a href="#" class="btn btn-primary" data-i18n="projects.demo">Live Demo</a>
+                                <a href="#" class="btn btn-outline" data-i18n="projects.repo">Repo</a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="experience">
+            <div class="container">
+                <h2 class="section-title" data-aos="fade-up" data-i18n="experience.title">Experience</h2>
+                
+                <div class="timeline">
+                    <div class="timeline-line"></div>
+                    
+                    <div class="timeline-item" data-aos="fade-left" data-aos-delay="100">
+                        <div class="timeline-node"></div>
+                        <div class="timeline-content">
+                            <div class="job-header">
+                                <img src="assets/companies/company1.png" alt="Company 1" class="company-logo">
+                                <div class="job-info">
+                                    <h3 class="job-title" data-i18n="experience.job1.title">Senior Software Engineer</h3>
+                                    <p class="company-name" data-i18n="experience.job1.company">TechCorp Solutions</p>
+                                    <p class="job-dates" data-i18n="experience.job1.dates">2022 - Present</p>
+                                </div>
+                            </div>
+                            <ul class="job-achievements">
+                                <li data-i18n="experience.job1.achievement1">Led development of microservices architecture serving 1M+ users</li>
+                                <li data-i18n="experience.job1.achievement2">Implemented CI/CD pipelines reducing deployment time by 60%</li>
+                                <li data-i18n="experience.job1.achievement3">Mentored 5 junior developers and conducted code reviews</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item" data-aos="fade-left" data-aos-delay="200">
+                        <div class="timeline-node"></div>
+                        <div class="timeline-content">
+                            <div class="job-header">
+                                <img src="assets/companies/company2.png" alt="Company 2" class="company-logo">
+                                <div class="job-info">
+                                    <h3 class="job-title" data-i18n="experience.job2.title">Full Stack Developer</h3>
+                                    <p class="company-name" data-i18n="experience.job2.company">StartupXYZ</p>
+                                    <p class="job-dates" data-i18n="experience.job2.dates">2020 - 2022</p>
+                                </div>
+                            </div>
+                            <ul class="job-achievements">
+                                <li data-i18n="experience.job2.achievement1">Built and deployed 3 major features from concept to production</li>
+                                <li data-i18n="experience.job2.achievement2">Optimized database queries improving performance by 40%</li>
+                                <li data-i18n="experience.job2.achievement3">Collaborated with design team to implement responsive UI/UX</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item" data-aos="fade-left" data-aos-delay="300">
+                        <div class="timeline-node"></div>
+                        <div class="timeline-content">
+                            <div class="job-header">
+                                <img src="assets/companies/company3.png" alt="Company 3" class="company-logo">
+                                <div class="job-info">
+                                    <h3 class="job-title" data-i18n="experience.job3.title">Junior Developer</h3>
+                                    <p class="company-name" data-i18n="experience.job3.company">Digital Innovations</p>
+                                    <p class="job-dates" data-i18n="experience.job3.dates">2018 - 2020</p>
+                                </div>
+                            </div>
+                            <ul class="job-achievements">
+                                <li data-i18n="experience.job3.achievement1">Developed REST APIs and frontend components</li>
+                                <li data-i18n="experience.job3.achievement2">Participated in agile development cycles</li>
+                                <li data-i18n="experience.job3.achievement3">Contributed to open source projects</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact">
+            <div class="container">
+                <h2 class="section-title" data-aos="fade-up" data-i18n="contact.title">Get In Touch</h2>
+                
+                <div class="contact-content">
+                    <div class="contact-form-container" data-aos="fade-up">
+                        <form class="contact-form" action="https://formspree.io/f/your-form-id" method="POST">
+                            <div class="form-group">
+                                <label for="name" data-i18n="contact.form.name">Name</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email" data-i18n="contact.form.email">Email</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="message" data-i18n="contact.form.message">Message</label>
+                                <textarea id="message" name="message" rows="5" required></textarea>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary" data-i18n="contact.form.submit">Send Message</button>
+                        </form>
+                    </div>
+                    
+                    <div class="contact-actions" data-aos="fade-up" data-aos-delay="200">
+                        <a href="assets/resume.pdf" class="btn btn-outline" download>
+                            <svg class="download-icon" width="16" height="16" viewBox="0 0 16 16">
+                                <path d="M8 1v10m0 0l-3-3m3 3l3-3M2 13h12" stroke="currentColor" stroke-width="2" fill="none"/>
+                            </svg>
+                            <span data-i18n="contact.resume">Download Résumé</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p class="copyright" data-i18n="footer.copyright">© 2025 Mihir Sampat</p>
+                
+                <div class="social-links">
+                    <a href="https://github.com/mihirsampat" class="social-link" aria-label="GitHub">
+                        <svg width="24" height="24" viewBox="0 0 24 24">
+                            <path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.17 6.839 9.49.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.604-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.464-1.11-1.464-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.115 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.579.688.481C19.138 20.167 22 16.418 22 12c0-5.523-4.477-10-10-10z" fill="currentColor"/>
+                        </svg>
+                    </a>
+                    <a href="https://linkedin.com/in/mihirsampat" class="social-link" aria-label="LinkedIn">
+                        <svg width="24" height="24" viewBox="0 0 24 24">
+                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" fill="currentColor"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast" role="alert" aria-live="polite">
+        <span class="toast-message"></span>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="scripts/main.js"></script>
+</body>
+</html> 

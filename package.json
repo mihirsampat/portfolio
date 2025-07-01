@@ -1,0 +1,36 @@
+{
+  "name": "mihir-sampat-portfolio",
+  "version": "1.0.0",
+  "description": "Personal portfolio website for Mihir Sampat - Software Engineer & Problem Solver",
+  "main": "index.html",
+  "scripts": {
+    "dev": "python -m http.server 8000",
+    "serve": "npx serve .",
+    "build": "echo 'No build step required - static site'",
+    "deploy": "echo 'Deploy to your preferred hosting service'",
+    "lint": "echo 'Add linting tools if needed'",
+    "test": "echo 'Add testing tools if needed'"
+  },
+  "keywords": [
+    "portfolio",
+    "software-engineer",
+    "web-development",
+    "python",
+    "fastapi",
+    "aws",
+    "blockchain"
+  ],
+  "author": "Mihir Sampat",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mihirsampat/portfolio.git"
+  },
+  "homepage": "https://mihirsampat.com",
+  "devDependencies": {
+    "serve": "^14.2.1"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+} 
