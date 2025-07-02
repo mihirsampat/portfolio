@@ -38,9 +38,10 @@ A sleek, modern, and responsive portfolio website showcasing software engineerin
 
 ### Prerequisites
 - A modern web browser
+- Python 3.x (for local development server)
 - Basic knowledge of HTML/CSS/JavaScript (for customization)
 
-### Installation
+### Installation & Setup
 
 1. **Clone the repository**
    ```bash
@@ -53,28 +54,63 @@ A sleek, modern, and responsive portfolio website showcasing software engineerin
    - Update personal information in `index.html`
    - Modify translations in `scripts/main.js`
 
-3. **Deploy**
-   - Upload to any web hosting service
-   - Or use GitHub Pages (see deployment section)
+### Running the Website
 
-### Local Development
+#### Option 1: Using Python (Recommended)
+```bash
+# Start the local server
+python3 -m http.server 8000
 
-1. **Start a local server**
+# Open in your browser
+open http://localhost:8000
+```
+
+#### Option 2: Using Node.js
+```bash
+# Install serve globally (if not already installed)
+npm install -g serve
+
+# Start the local server
+serve .
+
+# Or use npx without global installation
+npx serve .
+```
+
+#### Option 3: Using PHP
+```bash
+# Start the local server
+php -S localhost:8000
+
+# Open in your browser
+open http://localhost:8000
+```
+
+#### Option 4: Direct File Opening
+- Simply double-click `index.html` to open in your default browser
+- Note: Some features may not work properly due to CORS restrictions
+
+### Development Workflow
+
+1. **Start the server**
    ```bash
-   # Using Python
-   python -m http.server 8000
-   
-   # Using Node.js
-   npx serve .
-   
-   # Using PHP
-   php -S localhost:8000
+   python3 -m http.server 8000
    ```
 
 2. **Open in browser**
    ```
    http://localhost:8000
    ```
+
+3. **Make changes** to HTML, CSS, or JavaScript files
+
+4. **Refresh browser** to see changes (no build step required)
+
+5. **Stop server** with `Ctrl+C` when done
+
+### Deployment
+- Upload to any web hosting service
+- Or use GitHub Pages (see deployment section below)
 
 ## 📁 Project Structure
 

@@ -634,23 +634,53 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 1.1rem;
 }
 
+/* Minimalist quick-facts redesign */
 .quick-facts {
-    margin-top: 2rem;
     display: flex;
-    flex-direction: column;
-    gap: 1rem;
+    gap: 2.5rem;
+    margin: 2rem 0 1.5rem 0;
+    justify-content: flex-start;
+    align-items: center;
 }
 
 .fact {
     display: flex;
     align-items: center;
     gap: 0.75rem;
-    font-size: 1rem;
+    font-size: 1.05rem;
     color: var(--text-secondary);
+    font-weight: 400;
+    letter-spacing: 0.01em;
 }
 
 .fact-icon {
-    font-size: 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    color: var(--text-muted);
+    background: none;
+    border-radius: 50%;
+    font-size: 1.1rem;
+}
+
+.fact-icon svg {
+    width: 1.25rem;
+    height: 1.25rem;
+    stroke: var(--text-muted);
+    display: block;
+}
+
+@media (max-width: 600px) {
+    .quick-facts {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.25rem;
+    }
+    .fact {
+        font-size: 1rem;
+    }
 }
 
 @media (max-width: 768px) {
@@ -671,6 +701,30 @@ h1, h2, h3, h4, h5, h6 {
     .about-portrait {
         width: 120px;
         height: 120px;
+    }
+}
+
+.about-mobile-img {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .about-image {
+        justify-content: center;
+    }
+    .about-card {
+        display: none;
+    }
+    .about-mobile-img {
+        display: block;
+        width: 140px;
+        height: 140px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 3px solid var(--accent-primary);
+        margin: 0 auto;
+        box-shadow: none;
+        background: var(--bg-primary);
     }
 }
 

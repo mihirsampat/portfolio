@@ -1,5 +1,34 @@
 // Main JavaScript for Portfolio Website
 
+// Utility functions for dynamic calculations
+function calculateAge(birthDate) {
+    const today = new Date();
+    const birth = new Date(birthDate);
+    let age = today.getFullYear() - birth.getFullYear();
+    const monthDiff = today.getMonth() - birth.getMonth();
+    
+    if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birth.getDate())) {
+        age--;
+    }
+    
+    console.log(`calculateAge(${birthDate}): today=${today.toDateString()}, birth=${birth.toDateString()}, age=${age}`);
+    return age;
+}
+
+function calculateExperience(startDate) {
+    const today = new Date();
+    const start = new Date(startDate);
+    let years = today.getFullYear() - start.getFullYear();
+    const monthDiff = today.getMonth() - start.getMonth();
+    
+    if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < start.getDate())) {
+        years--;
+    }
+    
+    console.log(`calculateExperience(${startDate}): today=${today.toDateString()}, start=${start.toDateString()}, years=${years}`);
+    return years;
+}
+
 // Skills Data Structure
 const skillsData = {
     python: {
@@ -100,6 +129,7 @@ class ThemeManager {
 // Language Management
 class LanguageManager {
     constructor() {
+        console.log('LanguageManager constructor called');
         this.currentLang = 'en';
         this.translations = {
             en: {
@@ -123,15 +153,15 @@ class LanguageManager {
                 about: {
                     title: 'About Me',
                     bio: {
-                        1: "I'm a passionate software engineer with 7 years of experience building scalable solutions and solving complex problems. My journey in technology has taken me from web development to blockchain and cloud infrastructure.",
-                        2: "I specialize in Python development, particularly with FastAPI for building high-performance APIs, and have extensive experience with AWS cloud services and PostgreSQL databases.",
-                        3: "When I'm not coding, you'll find me tending to my mango grove or exploring new technologies. I believe in writing clean, maintainable code and creating solutions that make a real impact."
+                        1: "I'm <strong>Mihir R. Sampat</strong>, a <strong>Mumbai-based Director of Software Engineering</strong> with <strong>8+ years</strong> turning <strong>fintech concepts</strong> into <strong>production-ready, cloud-native platforms</strong>.",
+                        2: "My expertise blends deep <strong>Python</strong>, <strong>Kubernetes</strong>, <strong>serverless</strong>, and <strong>AWS/GCP architecture</strong> to build <strong>event-driven microservices</strong> that ingest <strong>terabytes</strong>, sustain <strong>sub-second latencies</strong>, and stay <strong>fault-tolerant</strong> during market turbulence.",
+                        3: "I define <strong>technical vision</strong>, <strong>mentor teams</strong>, and embed <strong>automation</strong>—from <strong>infrastructure-as-code</strong> to <strong>CI/CD</strong>—so every release is <strong>secure</strong>, <strong>auditable</strong>, and <strong>on schedule</strong>.",
+                        4: "If your organisation values <strong>reliability</strong>, <strong>speed</strong>, and <strong>disciplined engineering</strong>, let's explore how I can help drive your next stage of scale."
                     },
                     facts: {
                         age: 'Age 30',
                         location: 'Mumbai, India',
-                        experience: '7 yrs experience',
-                        grove: 'Owns a mango grove'
+                        experience: '8 yrs experience'
                     }
                 },
                 projects: {
@@ -213,15 +243,15 @@ class LanguageManager {
                 about: {
                     title: 'मेरे बारे में',
                     bio: {
-                        1: "मैं एक जुनूनी सॉफ्टवेयर इंजीनियर हूं जिसे स्केलेबल समाधान बनाने और जटिल समस्याओं को हल करने में 7 साल का अनुभव है। प्रौद्योगिकी में मेरी यात्रा ने मुझे वेब विकास से ब्लॉकचेन और क्लाउड इन्फ्रास्ट्रक्चर तक ले जाया है।",
-                        2: "मैं पायथन विकास में विशेषज्ञता रखता हूं, विशेष रूप से उच्च-प्रदर्शन API बनाने के लिए FastAPI के साथ, और AWS क्लाउड सेवाओं और PostgreSQL डेटाबेस के साथ व्यापक अनुभव है।",
-                        3: "जब मैं कोडिंग नहीं कर रहा होता, तो आप मुझे अपने आम के बाग की देखभाल करते या नई तकनीकों की खोज करते पाएंगे। मैं स्वच्छ, बनाए रखने योग्य कोड लिखने और वास्तविक प्रभाव डालने वाले समाधान बनाने में विश्वास करता हूं।"
+                        1: "मैं <strong>मिहिर आर. संपत</strong> हूं, <strong>मुंबई स्थित सॉफ्टवेयर इंजीनियरिंग के निदेशक</strong>, जिन्हें <strong>फिनटेक अवधारणाओं</strong> को <strong>उत्पादन-तैयार, क्लाउड-नेटिव प्लेटफॉर्म</strong> में बदलने में <strong>8+ वर्षों</strong> का अनुभव है।",
+                        2: "मेरी विशेषज्ञता गहरे <strong>पायथन</strong>, <strong>कुबेरनेट्स</strong>, <strong>सर्वरलेस</strong> और <strong>AWS/GCP आर्किटेक्चर</strong> को मिलाकर <strong>ईवेंट-संचालित माइक्रोसर्विस</strong> बनाती है जो <strong>टेराबाइट्स</strong> को संसाधित करते हैं, <strong>उप-सेकंड लेटेंसी</strong> बनाए रखते हैं, और बाजार की अस्थिरता के दौरान <strong>दोष-सहिष्णु</strong> रहते हैं।",
+                        3: "मैं <strong>तकनीकी दृष्टि</strong> को परिभाषित करता हूं, <strong>टीमों का मार्गदर्शन</strong> करता हूं, और <strong>स्वचालन</strong> को एम्बेड करता हूं—<strong>इन्फ्रास्ट्रक्चर-एज़-कोड</strong> से <strong>CI/CD</strong> तक—ताकि हर रिलीज़ <strong>सुरक्षित</strong>, <strong>ऑडिटेबल</strong> और <strong>समय पर</strong> हो।",
+                        4: "यदि आपकी संगठन <strong>विश्वसनीयता</strong>, <strong>गति</strong> और <strong>अनुशासित इंजीनियरिंग</strong> को महत्व देती है, तो आइए देखें कि मैं आपके अगले स्तर के स्केल को कैसे चला सकता हूं।"
                     },
                     facts: {
                         age: 'उम्र 30',
                         location: 'मुंबई, भारत',
-                        experience: '7 साल का अनुभव',
-                        grove: 'आम का बाग है'
+                        experience: '8 साल का अनुभव'
                     }
                 },
                 projects: {
@@ -287,6 +317,8 @@ class LanguageManager {
     }
 
     init() {
+        console.log('LanguageManager init() called');
+        this.updateContent();
         this.setupEventListeners();
     }
 
@@ -297,16 +329,22 @@ class LanguageManager {
     }
 
     updateContent() {
+        console.log('updateContent() called');
         const elements = document.querySelectorAll('[data-i18n]');
+        console.log(`Found ${elements.length} elements with data-i18n`);
         elements.forEach(element => {
             const key = element.getAttribute('data-i18n');
+            console.log(`Processing key: ${key}`);
             const translation = this.getTranslation(key);
             if (translation) {
                 if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
                     element.placeholder = translation;
+                } else if (key && key.startsWith('about.bio.')) {
+                    element.innerHTML = translation;
                 } else {
                     element.textContent = translation;
                 }
+                console.log(`Updated ${key} to: ${translation}`);
             }
         });
     }
@@ -321,6 +359,28 @@ class LanguageManager {
             } else {
                 return null;
             }
+        }
+        
+        // Handle dynamic calculations for age and experience
+        if (key === 'about.facts.age') {
+            const age = calculateAge('1995-04-13');
+            console.log(`Calculating age for key ${key}: ${age}`);
+            return `Age ${age}`;
+        }
+        if (key === 'about.facts.experience') {
+            const exp = calculateExperience('2016-12-01');
+            console.log(`Calculating experience for key ${key}: ${exp}`);
+            return `${exp} yrs experience`;
+        }
+        if (key === 'about.facts.age' && this.currentLang === 'hi') {
+            const age = calculateAge('1995-04-13');
+            console.log(`Calculating Hindi age for key ${key}: ${age}`);
+            return `उम्र ${age}`;
+        }
+        if (key === 'about.facts.experience' && this.currentLang === 'hi') {
+            const exp = calculateExperience('2016-12-01');
+            console.log(`Calculating Hindi experience for key ${key}: ${exp}`);
+            return `${exp} साल का अनुभव`;
         }
         
         return translation;
