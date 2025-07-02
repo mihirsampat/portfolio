@@ -14,7 +14,7 @@
     <link rel="preload" href="assets/fonts/Inter-Regular.woff2" as="font" type="font/woff2" crossorigin>
     
     <!-- Styles -->
-    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/main.css?v=1.2">
     
     <!-- AOS Animation Library -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -113,6 +113,8 @@
         <!-- About Section -->
         <section id="about" class="about">
             <div class="container">
+                <h2 class="section-title" data-aos="fade-up" data-i18n="about.title">About Me</h2>
+                <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100" data-i18n="about.subtitle">A quick introduction and background</p>
                 <div class="about-content">
                     <div class="about-image" data-aos="fade-right">
                         <div class="about-card">
@@ -122,7 +124,6 @@
                     </div>
                     
                     <div class="about-text" data-aos="fade-left">
-                        <h2 class="section-title" data-i18n="about.title">About Me</h2>
                         <div class="bio">
                             <p data-i18n="about.bio.1">I'm <strong>Mihir R. Sampat</strong>, a <strong>Mumbai-based Director of Software Engineering</strong> with <strong>7+ years</strong> turning <strong>fintech concepts</strong> into <strong>production-ready, cloud-native platforms</strong>.</p>
                             <p data-i18n="about.bio.2">My expertise blends deep <strong>Python</strong>, <strong>Kubernetes</strong>, <strong>serverless</strong>, and <strong>AWS/GCP architecture</strong> to build <strong>event-driven microservices</strong> that ingest <strong>terabytes</strong>, sustain <strong>sub-second latencies</strong>, and stay <strong>fault-tolerant</strong> during market turbulence.</p>
@@ -159,66 +160,9 @@
         <section id="projects" class="projects">
             <div class="container">
                 <h2 class="section-title" data-aos="fade-up" data-i18n="projects.title">Featured Projects</h2>
+                <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100" data-i18n="projects.subtitle">A selection of impactful work and technical achievements</p>
                 
-                <div class="projects-grid">
-                    <article class="project-card" data-aos="fade-up" data-aos-delay="100" data-tech="Python,FastAPI,PostgreSQL,AWS">
-                        <div class="project-image">
-                            <img src="assets/projects/project1.jpg" alt="Project 1" loading="lazy">
-                        </div>
-                        <div class="project-content">
-                            <h3 class="project-title" data-i18n="projects.project1.title">E-Commerce API Platform</h3>
-                            <p class="project-description" data-i18n="projects.project1.description">A high-performance REST API built with FastAPI, featuring user authentication, product management, and payment processing with PostgreSQL and Redis caching.</p>
-                            <div class="project-tech">
-                                <span class="tech-tag">Python</span>
-                                <span class="tech-tag">FastAPI</span>
-                                <span class="tech-tag">PostgreSQL</span>
-                                <span class="tech-tag">AWS</span>
-                            </div>
-                            <div class="project-actions">
-                                <a href="#" class="btn btn-primary" data-i18n="projects.demo">Live Demo</a>
-                                <a href="#" class="btn btn-outline" data-i18n="projects.repo">Repo</a>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="project-card" data-aos="fade-up" data-aos-delay="200" data-tech="Solidity,JavaScript,Web3">
-                        <div class="project-image">
-                            <img src="assets/projects/project2.jpg" alt="Project 2" loading="lazy">
-                        </div>
-                        <div class="project-content">
-                            <h3 class="project-title" data-i18n="projects.project2.title">DeFi Yield Farming Protocol</h3>
-                            <p class="project-description" data-i18n="projects.project2.description">A decentralized finance protocol for yield farming with smart contracts written in Solidity, featuring liquidity pools and automated market making.</p>
-                            <div class="project-tech">
-                                <span class="tech-tag">Solidity</span>
-                                <span class="tech-tag">JavaScript</span>
-                                <span class="tech-tag">Web3</span>
-                            </div>
-                            <div class="project-actions">
-                                <a href="#" class="btn btn-primary" data-i18n="projects.demo">Live Demo</a>
-                                <a href="#" class="btn btn-outline" data-i18n="projects.repo">Repo</a>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="project-card" data-aos="fade-up" data-aos-delay="300" data-tech="Python,AWS,Lambda">
-                        <div class="project-image">
-                            <img src="assets/projects/project3.jpg" alt="Project 3" loading="lazy">
-                        </div>
-                        <div class="project-content">
-                            <h3 class="project-title" data-i18n="projects.project3.title">Serverless Data Pipeline</h3>
-                            <p class="project-description" data-i18n="projects.project3.description">A serverless data processing pipeline using AWS Lambda, S3, and DynamoDB for real-time analytics and reporting with automated scaling.</p>
-                            <div class="project-tech">
-                                <span class="tech-tag">Python</span>
-                                <span class="tech-tag">AWS</span>
-                                <span class="tech-tag">Lambda</span>
-                            </div>
-                            <div class="project-actions">
-                                <a href="#" class="btn btn-primary" data-i18n="projects.demo">Live Demo</a>
-                                <a href="#" class="btn btn-outline" data-i18n="projects.repo">Repo</a>
-                            </div>
-                        </div>
-                    </article>
-                </div>
+                <div class="projects-grid" id="projectsGrid"></div>
             </div>
         </section>
 
@@ -226,6 +170,7 @@
         <section id="experience" class="experience">
             <div class="container">
                 <h2 class="section-title" data-aos="fade-up" data-i18n="experience.title">Experience</h2>
+                <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100" data-i18n="experience.subtitle">Professional roles and key milestones in my career</p>
                 
                 <div class="timeline">
                     <div class="timeline-line"></div>
@@ -294,6 +239,7 @@
         <section id="contact" class="contact">
             <div class="container">
                 <h2 class="section-title" data-aos="fade-up" data-i18n="contact.title">Get In Touch</h2>
+                <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100" data-i18n="contact.subtitle">Let's connect for opportunities, collaborations, or questions</p>
                 
                 <div class="contact-content">
                     <div class="contact-form-container" data-aos="fade-up">

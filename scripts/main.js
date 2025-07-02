@@ -88,6 +88,19 @@ const skillsData = {
     }
 };
 
+// Projects Data Structure
+const projectsData = [
+  {
+    title: 'FastAPI URL Shortener',
+    description: 'A robust URL shortener service built with FastAPI, PostgreSQL, and SQLAlchemy. Features JWT authentication, analytics tracking, user management, and comprehensive API documentation with Swagger UI.',
+    image: 'assets/projects/project1.jpg',
+    tech: ['Python', 'FastAPI', 'PostgreSQL', 'SQLAlchemy', 'JWT', 'Alembic'],
+    demo: '#',
+    repo: 'https://github.com/mihirsampat/fastapi-url-shortener',
+    hasDemo: false
+  }
+];
+
 // Initialize AOS (Animate On Scroll)
 AOS.init({
     duration: 800,
@@ -427,31 +440,37 @@ function setupSmoothScrolling() {
     });
 }
 
-// Navigation Active State
+// Navigation Active State (Scroll Spy: highlight section most visible in viewport)
 function setupNavigationActiveState() {
     const sections = document.querySelectorAll('section[id]');
     const navLinks = document.querySelectorAll('.nav-link');
-    
+
+    function getVisibleHeight(rect) {
+        const vh = window.innerHeight;
+        const visible = Math.max(0, Math.min(rect.bottom, vh) - Math.max(rect.top, 0));
+        return visible;
+    }
+
     function updateActiveNav() {
-        const scrollPosition = window.scrollY + 100;
-        
+        let maxVisible = 0;
+        let currentSection = sections[0];
+
         sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            const sectionHeight = section.offsetHeight;
-            const sectionId = section.getAttribute('id');
-            
-            if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-                navLinks.forEach(link => {
-                    link.classList.remove('active');
-                    if (link.getAttribute('href') === `#${sectionId}`) {
-                        link.classList.add('active');
-                    }
-                });
+            const rect = section.getBoundingClientRect();
+            const visible = getVisibleHeight(rect);
+            if (visible > maxVisible) {
+                maxVisible = visible;
+                currentSection = section;
             }
         });
+
+        navLinks.forEach(link => {
+            link.classList.toggle('active', link.getAttribute('href') === `#${currentSection.id}`);
+        });
     }
-    
+
     window.addEventListener('scroll', updateActiveNav);
+    window.addEventListener('resize', updateActiveNav);
     updateActiveNav(); // Initial call
 }
 
@@ -806,6 +825,39 @@ function setupAboutCardParallax() {
     resetParallax();
 }
 
+function renderProjects() {
+  const grid = document.getElementById('projectsGrid');
+  if (!grid) return;
+  grid.innerHTML = '';
+  projectsData.forEach((project, idx) => {
+    const article = document.createElement('article');
+    article.className = 'project-card';
+    article.setAttribute('data-aos', 'fade-up');
+    article.setAttribute('data-aos-delay', 100 * (idx + 1));
+    article.setAttribute('data-tech', project.tech.join(','));
+    
+    const demoButton = project.hasDemo ? `<a href="${project.demo}" class="btn btn-primary">Live Demo</a>` : '';
+    
+    article.innerHTML = `
+      <div class="project-image">
+        <img src="${project.image}" alt="${project.title}" loading="lazy">
+      </div>
+      <div class="project-content">
+        <h3 class="project-title">${project.title}</h3>
+        <p class="project-description">${project.description}</p>
+        <div class="project-tech">
+          ${project.tech.map(t => `<span class='tech-tag'>${t}</span>`).join('')}
+        </div>
+        <div class="project-actions">
+          ${demoButton}
+          <a href="${project.repo}" class="btn btn-outline" target="_blank" rel="noopener noreferrer">Repo</a>
+        </div>
+      </div>
+    `;
+    grid.appendChild(article);
+  });
+}
+
 // Initialize everything when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
     // Initialize managers
@@ -821,6 +873,7 @@ document.addEventListener('DOMContentLoaded', () => {
     setupParallax();
     setupMobileMenu();
     setupAboutCardParallax();
+    renderProjects();
 
     // Make utilities globally available
     window.scrollToSection = scrollToSection;
