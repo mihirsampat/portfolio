@@ -101,6 +101,119 @@ const projectsData = [
   }
 ];
 
+// Experience Data Structure
+const experienceData = [
+  {
+    title: 'Director of Software Engineering',
+    company: 'Adaptive Investment Solutions',
+    location: 'Boston, Massachusetts, United States · Remote',
+    dates: 'Nov 2023 - Present',
+    duration: '1 yr 9 mos',
+    logo: 'assets/companies/company1.jpeg',
+    achievements: [
+      'Lead a 12-person, pan-India/Boston engineering org (design, FE, BE, infra, data)',
+      'Slashed cloud spend from USD 200k → 80k by migrating monolith to Docker-based microservices & AWS Lambda',
+      'Own 99%+ uptime SLA; platform ingests 1TB data/day with < 250ms P95 latency',
+      'Productised research team\'s option-hedging logic into Market Shield—drove new ARR (confidential)',
+      'Raised hiring bar: instituted code-review rubric; attrition held below 5%'
+    ],
+    skills: ['Python', 'AWS', 'Docker', 'Microservices', 'Team Leadership', 'Jira', 'CI/CD']
+  },
+  {
+    title: 'Senior Software Developer',
+    company: 'Adaptive Investment Solutions',
+    location: 'Boston, Massachusetts, United States · Remote',
+    dates: 'Apr 2022 - Nov 2023',
+    duration: '1 yr 8 mos',
+    logo: 'assets/companies/company1.jpeg',
+    achievements: [
+      'Built Market Shield (Python, AWS): protects client equity portfolios; cut API response from 20s → 3s',
+      'Deployed on-the-fly beta/volatility calc via linear regression on streaming data',
+      'Mentored two juniors; one promoted to Software Developer II within nine months',
+      'Leveraged Next.JS and React to create responsive frontend for data visualization and decision support',
+      'Collaborated with data scientists to develop and deploy ML models for market trend prediction',
+      'Utilized py_vollib library in algorithms to hedge user portfolios and optimized lambda functions'
+    ],
+    skills: ['Python', 'Next.js', 'React', 'PostgreSQL', 'AWS', 'Jira', 'Machine Learning', 'py_vollib']
+  },
+  {
+    title: 'Full-Stack Developer',
+    company: 'Adaptive Investment Solutions',
+    location: 'Boston, Massachusetts, United States · Remote',
+    dates: 'Aug 2021 - Apr 2022',
+    duration: '9 mos',
+    logo: 'assets/companies/company1.jpeg',
+    achievements: [
+      'Delivered CI/CD pipelines, API Gateway, five internal Python libraries, and 100GB/day data-scraping service',
+      'Collaborated with UX to improve dashboard load time by 30% (A/B test, n=1k users)',
+      'Designed and developed entire backend stack using Python for real-time analysis of massive market data',
+      'Implemented multi-account AWS infrastructure and development pipeline',
+      'Managed PostgreSQL databases, optimizing performance and ensuring data consistency'
+    ],
+    skills: ['Python', 'AWS', 'React', 'PostgreSQL', 'SQL', 'CI/CD', 'API Gateway']
+  },
+  {
+    title: 'Consultant',
+    company: 'Adaptive Investment Solutions',
+    location: 'Remote',
+    dates: 'Nov 2020 - Aug 2021',
+    duration: '10 mos',
+    logo: 'assets/companies/company1.jpeg',
+    achievements: [
+      'Provided technical consulting and development services for fintech solutions',
+      'Collaborated on Python-based data processing and AWS infrastructure projects'
+    ],
+    skills: ['Python', 'AWS', 'React', 'Process Improvement']
+  },
+  {
+    title: 'Data Engineer',
+    company: 'CRG Solutions Pvt. Ltd',
+    location: 'Mumbai, Maharashtra, India · On-site',
+    dates: 'Jan 2021 - Jul 2021',
+    duration: '7 mos',
+    logo: 'assets/companies/company2.png',
+    achievements: [
+      'Processed 2TB/day marketing data in PySpark for targeted-ads pipeline; boosted campaign CTR by ~8%',
+      'Developed and maintained PySpark jobs for processing large volumes of user data',
+      'Designed and implemented ETL processes to extract, transform, and load data into centralized data lake on AWS',
+      'Optimized performance of big data processing tasks, ensuring timely completion and efficient resource utilization',
+      'Ensured data security and compliance with data protection regulations'
+    ],
+    skills: ['PySpark', 'Python', 'AWS', 'SQL', 'Tableau', 'ETL', 'Big Data']
+  },
+  {
+    title: 'Project Trainee',
+    company: 'CRG Solutions Pvt. Ltd',
+    location: 'Mumbai, Maharashtra, India',
+    dates: 'Jul 2020 - Jan 2021',
+    duration: '7 mos',
+    logo: 'assets/companies/company2.png',
+    achievements: [
+      'Assisted in data processing and analysis tasks',
+      'Learned PySpark and big data technologies',
+      'Supported the data engineering team in various projects'
+    ],
+    skills: ['Python', 'AWS', 'React', 'Process Improvement']
+  },
+  {
+    title: 'Software Engineer',
+    company: 'Autosys Industrial Solutions Pvt. Ltd.',
+    location: 'Mumbai Area, India · On-site',
+    dates: 'Dec 2016 - Sep 2018',
+    duration: '1 yr 10 mos',
+    logo: 'assets/companies/company3.png',
+    achievements: [
+      'Developed sensor-data acquisition for manufacturing vertical; integrated with SCADA to cut downtime 12%',
+      'Developed statistical solutions for analyzing raw industrial current data using Python and statistical packages',
+      'Implemented data ingestion pipelines, ensuring data integrity and quality',
+      'Designed and developed backend services using Python and React for data visualization and analysis',
+      'Implemented and maintained database structures using MySQL, optimizing performance and ensuring data security',
+      'Deployed and managed applications on AWS, leveraging cloud services for scalability and cost optimization'
+    ],
+    skills: ['Python', 'MySQL', 'AWS', 'React', 'SCADA', 'Data Analysis', 'Industrial Systems']
+  }
+];
+
 // Initialize AOS (Animate On Scroll)
 AOS.init({
     duration: 800,
@@ -833,7 +946,7 @@ function renderProjects() {
     const article = document.createElement('article');
     article.className = 'project-card';
     article.setAttribute('data-aos', 'fade-up');
-    article.setAttribute('data-aos-delay', 100 * (idx + 1));
+    article.setAttribute('data-aos-delay', `${100 + idx * 100}`);
     article.setAttribute('data-tech', project.tech.join(','));
     
     const demoButton = project.hasDemo ? `<a href="${project.demo}" class="btn btn-primary">Live Demo</a>` : '';
@@ -854,7 +967,69 @@ function renderProjects() {
         </div>
       </div>
     `;
+    
     grid.appendChild(article);
+  });
+}
+
+function renderExperience() {
+  const timeline = document.querySelector('.timeline');
+  if (!timeline) return;
+  
+  // Clear existing timeline items (keep the line)
+  const existingItems = timeline.querySelectorAll('.timeline-item');
+  existingItems.forEach(item => item.remove());
+  
+  experienceData.forEach((job, idx) => {
+    console.log(`Rendering job ${idx + 1}: ${job.title} at ${job.company} with logo: ${job.logo}`);
+    
+    const timelineItem = document.createElement('div');
+    timelineItem.className = 'timeline-item';
+    timelineItem.setAttribute('data-aos', 'fade-left');
+    timelineItem.setAttribute('data-aos-delay', `${100 + idx * 100}`);
+    
+    const timelineNode = document.createElement('div');
+    timelineNode.className = 'timeline-node';
+    
+    const timelineContent = document.createElement('div');
+    timelineContent.className = 'timeline-content';
+    
+    const jobHeader = document.createElement('div');
+    jobHeader.className = 'job-header';
+    jobHeader.innerHTML = `
+      <img src="${job.logo}" alt="${job.company}" class="company-logo" onerror="this.style.display='none'; this.nextElementSibling.style.marginLeft='0'; console.error('Failed to load logo:', this.src);">
+      <div class="job-info">
+        <h3 class="job-title">${job.title}</h3>
+        <p class="company-name">${job.company}</p>
+        <p class="job-location">${job.location}</p>
+        <p class="job-dates">${job.dates} · ${job.duration}</p>
+      </div>
+    `;
+    
+    const achievementsList = document.createElement('ul');
+    achievementsList.className = 'job-achievements';
+    job.achievements.forEach(achievement => {
+      const li = document.createElement('li');
+      li.textContent = achievement;
+      achievementsList.appendChild(li);
+    });
+    
+    const skillsDiv = document.createElement('div');
+    skillsDiv.className = 'job-skills';
+    skillsDiv.innerHTML = `
+      <div class="skills-tags">
+        ${job.skills.map(skill => `<span class="skill-tag">${skill}</span>`).join('')}
+      </div>
+    `;
+    
+    timelineContent.appendChild(jobHeader);
+    timelineContent.appendChild(achievementsList);
+    timelineContent.appendChild(skillsDiv);
+    
+    timelineItem.appendChild(timelineNode);
+    timelineItem.appendChild(timelineContent);
+    
+    timeline.appendChild(timelineItem);
   });
 }
 
@@ -874,6 +1049,7 @@ document.addEventListener('DOMContentLoaded', () => {
     setupMobileMenu();
     setupAboutCardParallax();
     renderProjects();
+    renderExperience();
 
     // Make utilities globally available
     window.scrollToSection = scrollToSection;
